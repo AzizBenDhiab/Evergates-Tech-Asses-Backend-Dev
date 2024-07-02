@@ -14,7 +14,7 @@ pub async fn post_details(
     }
     client
         .execute(
-            r#"INSERT INTO "Details" (name, value) VALUES ($1, $2)"#,
+            r#"INSERT INTO "details" (name, value) VALUES ($1, $2)"#,
             &[&payload.name, &payload.value],
         )
         .await
@@ -26,7 +26,7 @@ pub async fn get_details(
     Extension(client): Extension<Arc<Client>>,
 ) -> Result<Json<Vec<Details>>, (axum::http::StatusCode, String)> {
     let rows = client
-        .query(r#"SELECT name, value FROM "Details""#, &[])
+        .query(r#"SELECT name, value FROM "details""#, &[])
         .await
         .map_err(|e| (axum::http::StatusCode::INTERNAL_SERVER_ERROR, e.to_string()))?;
 
