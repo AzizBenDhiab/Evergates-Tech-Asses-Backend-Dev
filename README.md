@@ -48,7 +48,7 @@ Create a .env file in the root directory of your project with the following cont
 DATABASE_HOST=your-host
 DATABASE_USER=your-user
 DATABASE_PASSWORD=your-password
-DATABASE_NAME=Evergates
+DATABASE_NAME=evergates
 ```
 
 3.**Database Setup**
@@ -66,7 +66,7 @@ Connect to the Evergates Database:
 Once the database is created, connect to it using:
 
 ```sh
-psql -U postgres -d Evergates
+psql -U postgres -d evergates
 ```
 
 Create the Details Table:
@@ -74,7 +74,7 @@ Create the Details Table:
 Within the Evergates database, create a table named Details with the following schema:
 
 ```sql
-CREATE TABLE Details (
+CREATE TABLE details (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     value VARCHAR(100) NOT NULL
